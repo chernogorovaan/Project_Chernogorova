@@ -4,6 +4,5 @@ try:
     seconds_hour = 3600
     seconds_last_hour = n % seconds_hour
     print(seconds_last_hour)
-    # Выводим результат на консоль
 except ValueError:
     print("Ошибка! Введите целое число")
