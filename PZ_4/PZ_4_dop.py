@@ -1,39 +1,38 @@
 #Задание: Найти и вывести на экран сумму и количество отрицательных чисел.
+k=0
+sum=0
 for i in range(4):
   a=int(input(':'))
-  i=0
-  sum=0
-  if a>0:
-    i+=1
+  if a<0:
+    k+=1
     sum+=a
 print(i)
 print(sum)
 
 #Задание: Ввести 4 числа. Найти и вывести на экран количество четных чисел.
+k=0
 for i in range(4):
   a=int(input(':'))
-  i=0
   if a%2==0:
-    i+=1
-    sum+=a
-print(i)
+    k+=1
+print(k)
 
 #Задание: Найти и вывести на экран квадраты и кубы чисел от 2 до 5.
-for i in range (2,5):
+for i in range (2,5+1):
   a=i**2
   b=i**3
   print(a)
   print(b)
 
 #Задание: Найти и вывести на экран S=1!+2!+3!+...+n! (n>1).
-n=int(input(':')
+n=int(input(':'))
 if n<=1:
       print('n должно быть больше 1!')
 else:
   s = 0
   fact = 1
   for i in range(1, n + 1):
-    fact * = i
+    fact*= i
     s += fact
 print(f'S = 1! + 2! = ... + {n}! = {s}')
 
@@ -63,11 +62,11 @@ a = int(input(':'))
 b = int(input(':'))
 k=0
 if b>a:
-  for i in range(b,a):
+  for i in range(b,a,-1):
     k+=1
     print (i)
 if a>b:
-  for i in range(a,b):
+  for i in range(a,b,-1):
     k+=1
     print (i)
 print(k)
@@ -85,26 +84,26 @@ a1 = 10
 an = 30
 d = 5 #Предположительная разность 
 c = 0
-for i in (a1, an+1, d):
+for i in range(a1, an+1, d):
   c+=1
 print(f'Всего элементов: {c}')
 
 #Задание: Вывести первые N (N>=3) чисел Фибоначчи и посчитать количество четных чисел
 n = int(input("Введите N (N>=3): "))
 fib1, fib2 = 0, 1
-even_count = 0
-for i in range(2, N):
+count = 0
+for i in range(2, n):
     fib_next = fib1 + fib2
     print(fib_next, end=" ")
     if fib_next % 2 == 0:
-        even_count += 1
+        count += 1
     fib1, fib2 = fib2, fib_next
 print(f"Количество четных чисел: {count}")
 
 #Задание: Дана прогрессия a1=1 a2=4 a3=7 a4=10 a5=13. Написать программу, которая разделит каждый член прогрессии на 2 и результат округлит до ближайщего целого
 a1=1
 d=3
-for i  in range(a1, (a1 + (5 - 1) × d)+1, d):
+for i  in range(a1, (a1 + (5 - 1) * d)+1, d):
   print(round(i/2))
   
 
