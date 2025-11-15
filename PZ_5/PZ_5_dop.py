@@ -18,7 +18,28 @@ def Numbers():
     print(sum2)
   elif sum3>sum1 and sum3>sum2:
     print(sum3)
-  
+
+#Задание: Расчитать и вывести периметр и площадь прямоугольника. Расчеты оформить в функции
+def PerimS():
+  a = int(input())
+  b = int(input())
+  p = (a+b)*2
+  s = a*b
+  print(p)
+  print(s)
+
+PerimS()
+
+#Задание: Написать программу, подсчитывающую количество цифр числа, используя для этого функцию
+def SymCount():
+    num = int(input(':'))
+    count = 0
+    while num>0:
+        count+=1
+        num=num//10
+    print(count)
+SymCount()
+
 
     
     
