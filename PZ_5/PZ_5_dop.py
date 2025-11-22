@@ -3,7 +3,7 @@ def NumSum(num):
   n1 = num//100
   n2 = (num//10)%10
   n3 = num%10
-  return total_sum
+  return n1+n2+n3
  
 def Numbers():
   a=int(input(':'))
