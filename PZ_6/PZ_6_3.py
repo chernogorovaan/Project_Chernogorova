@@ -9,3 +9,27 @@ R = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
 · первый список хранит абсциссы (x) точек,
 · второй список хранит ординаты (y) точек.
 """
+import math
+try:
+   a_x = []
+   a_y = []
+   n = int(input('Введите количество элементов для списка a'))
+   for i in range(n):
+       x = int(input(f"Введите точку x"))
+       y = int(input(f"Введите точку y"))
+       a_x.append(x)
+       a_y.append(y)
+    max_p = 0
+    best_points = []
+    for i in range(n):
+        for j in range(i+1, n):
+            for k in range(j+1,n):
+                s1 = math.sqrt((a_x[j]-a_x[i])**2+(a_y[j]-a_y[i])**2)
+                s2 = math.sqrt((a_x[k]-a_x[j])**2+(a_y[k]-a_y[j])**2)
+                s3 = math.sqrt((a_x[i]-a_x[k])**2+(a_y[i]-a_y[k])**2)
+                p = s1+s2+s3
+                if p>max_p:
+                    max_p = p
+                    best_points=[i,j,k]
+except ValueError:
+    print("Ошибка! Введите целое число!")
