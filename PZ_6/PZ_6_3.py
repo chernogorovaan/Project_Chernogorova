@@ -9,14 +9,15 @@ R = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
 · первый список хранит абсциссы (x) точек,
 · второй список хранит ординаты (y) точек.
 """
+import random
 import math
 try:
    a_x = []
    a_y = []
-   n = int(input('Введите количество элементов для списка a'))
+   n = random.randint(1,1000)
    for i in range(n):
-       x = int(input(f"Введите точку x"))
-       y = int(input(f"Введите точку y"))
+       x = random.randint(1,1000)
+       y = random.randint(1,1000)
        a_x.append(x)
        a_y.append(y)
     max_p = 0
@@ -31,7 +32,7 @@ try:
                 if p>max_p:
                     max_p = p
                     best_points=[i,j,k]
-   print(f"Наибольший периметр {round(max_p, 2)")
+   print(f"Наибольший периметр {round(max_p, 2)}")
    print("Точки треугольника:")
 for idx in best_points:
    print(f"{a_x[idx]};{a_y[idx]}")
