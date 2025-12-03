@@ -31,5 +31,10 @@ try:
                 if p>max_p:
                     max_p = p
                     best_points=[i,j,k]
+   print(f"Наибольший периметр {round(max_p, 2)")
+   print("Точки треугольника:")
+for idx in best_points:
+   print(f"{a_x[idx]};{a_y[idx]}")
+   
 except ValueError:
     print("Ошибка! Введите целое число!")
