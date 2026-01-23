@@ -2,11 +2,15 @@
 Организовать словарь 10 русско- английских слов, обеспечивающий "перевод"
 русского слова на английского.
 """
-my_dict = {
+try:
+    my_dict = {
     "небо": "sky", "земля": "earth", "море": "sea", "река": "river",
     "гора": "mountain", "лес": "forest", "поле": "field", "цветок": "flower",
     "дерево": "tree", "трава": "grass"
-}
+    }
 
-translator = input("Введите слово: ")
-print(f"Перевод: {my_dict.get(translator, 'нет в словаре')}")
+    translator = input("Введите слово: ")
+    print(f"Перевод: {my_dict.get(translator, 'нет в словаре')}")
+
+except ValueError:
+    print ('ошибка! пожалуйста, введите текст!')
