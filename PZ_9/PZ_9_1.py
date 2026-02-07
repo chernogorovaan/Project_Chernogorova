@@ -11,9 +11,14 @@ try:
     domknigi = {'Толстой', 'Грибоедов', 'Чехов', 'Пушкин'}
     bookmarket = {'Пушкин', 'Достоевский', 'Маяковский'}
     galereya = {'Чехов', 'Тютчев', 'Пушкин'}
-    bookshops = {'Магистр': magistr, 'ДомКниги': domknigi, 'БукМаркет': bookmarket, 'Галерея': galereya}
-    for k,v in bookshops.items():
-        if 'Маяковский' in v:
-            print(f"- {k}: {v}")
+   if 'Маяковский' in magistr:
+       print('Магистр')
+   if 'Маяковский' in domknigi:
+       print('ДомКниги')
+   if 'Маяковский' in bookmarket:
+       print('Букмаркет')
+   if 'Маяковский' in galereya:
+       print('Галерея')
 except AttributeError:
   print("ошибка! у объекта нет такого атрибута или метода")
+
