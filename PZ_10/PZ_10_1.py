@@ -54,3 +54,7 @@ r.write('Количество элементов:\n' + str(len(all)) + '\n\n')
 r.write('Количество отрицательных элементов:\n' + str(neg) + '\n\n')
 r.write('Количество положительных элементов:\n' + str(pos))
 r.close()
+
+with open('result.txt', 'r') as file:
+    content = file.read()
+    print(content)
