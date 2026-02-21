@@ -24,4 +24,9 @@ f = open('new_file.txt', 'w')
 f.write(new_text)
 f.close()
 
+with open('new_file.txt', 'r') as file:
+    content = file.read()
+    print(content)
+
+
 
