@@ -7,7 +7,7 @@ def uppercase_f (s):
         yield i.upper()
 
 stroka = input('Введите строку')
-total = ''
+result = ''
 for i in uppercase_f(stroka):
     result+=i
 print(result)
