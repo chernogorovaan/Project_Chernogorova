@@ -15,8 +15,7 @@ try:
         matrix[n] = [element + 3 for element in matrix[n]]
 
         print("\nМатрица после изменения:")
-        for row in matrix:
-            print(row)
+        print(*matrix, sep='\n')
     else:
         print(f"Ошибка: В матрице нет строки с номером {n}. Доступны строки 0, 1 и 2.")
 
