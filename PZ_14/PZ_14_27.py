@@ -3,71 +3,165 @@
 его в IDE PyCharm Community с применением пакета tk. Получить интерфейс максимально
 приближенный к оригиналу (см. таблицу 1)
 '''
-from tkinter import *
+import tkinter as tk
 
-window = Tk()
-window.title('Окно №1')
-window.geometry("400x350")
-window.resizable(False, False)
+root = tk.Tk()
+root.title("Выбор адреса")
+root.geometry("550x500")
+root.configure(bg="#e8e8e8")
+root.resizable(False, False)
 
-# Основной фрейм
-main_frame = Frame(window)
-main_frame.pack(pady=20, padx=20)
+# ---------------- Заголовок ----------------
 
-# Заголовок
-title = Label(main_frame, text="выбрать из справочника", font=("Arial", 10))
-title.grid(row=0, column=0, columnspan=4, sticky="w", pady=(0, 15))
+title = tk.Label(
+    root,
+    text="выбрать из справочника",
+    fg="#3aa0dd",
+    bg="#e8e8e8",
+    font=("Arial", 14, "underline")
+)
+title.pack(pady=10)
 
-# Регион
-Label(main_frame, text="Регион", width=10, anchor="w").grid(row=1, column=0, sticky="w")
-region_entry = Entry(main_frame, width=25)
-region_entry.grid(row=1, column=1, columnspan=3, sticky="w", padx=(0, 0))
-region_entry.insert(0, "[ не выбрано ]")
+# ---------------- Регион ----------------
 
-# Район
-Label(main_frame, text="Район", width=10, anchor="w").grid(row=2, column=0, sticky="w", pady=(10, 0))
-district_entry = Entry(main_frame, width=25)
-district_entry.grid(row=2, column=1, columnspan=3, sticky="w", padx=(0, 0), pady=(10, 0))
-district_entry.insert(0, "Выберите район")
+tk.Label(
+    root,
+    text="Регион",
+    bg="#e8e8e8",
+    font=("Arial", 14)
+).place(x=30, y=50)
 
-# Город
-Label(main_frame, text="Город", width=10, anchor="w").grid(row=3, column=0, sticky="w", pady=(10, 0))
-city_entry = Entry(main_frame, width=25)
-city_entry.grid(row=3, column=1, columnspan=3, sticky="w", padx=(0, 0), pady=(10, 0))
-city_entry.insert(0, "Выберите город")
+regions = [
+    "Не выбрано",
+    "Московская область",
+    "Ленинградская область",
+    "Краснодарский край"
+]
 
-# Улица
-Label(main_frame, text="Улица", width=10, anchor="w").grid(row=4, column=0, sticky="w", pady=(10, 0))
-street_entry = Entry(main_frame, width=25)
-street_entry.grid(row=4, column=1, columnspan=3, sticky="w", padx=(0, 0), pady=(10, 0))
-street_entry.insert(0, "Выберите улицу")
+region_var = tk.StringVar()
+region_var.set(regions[0])
 
-# Дом и Корпус
-Label(main_frame, text="Дом", width=10, anchor="w").grid(row=5, column=0, sticky="w", pady=(10, 0))
-house_entry = Entry(main_frame, width=10)
-house_entry.grid(row=5, column=1, sticky="w", padx=(0, 0), pady=(10, 0))
+region_menu = tk.OptionMenu(root, region_var, *regions)
+region_menu.config(width=35, font=("Arial", 12))
+region_menu.place(x=30, y=80)
 
-Label(main_frame, text="Корпус", width=6, anchor="w").grid(row=5, column=2, sticky="w", pady=(10, 0))
-building_entry = Entry(main_frame, width=8)
-building_entry.grid(row=5, column=3, sticky="w", padx=(0, 0), pady=(10, 0))
+# ---------------- Район ----------------
 
-# Стр./Вл. и Кв./Офис
-Label(main_frame, text="Стр./Вл.", width=10, anchor="w").grid(row=6, column=0, sticky="w", pady=(10, 0))
-structure_entry = Entry(main_frame, width=10)
-structure_entry.grid(row=6, column=1, sticky="w", padx=(0, 0), pady=(10, 0))
+tk.Label(
+    root,
+    text="Район",
+    bg="#e8e8e8",
+    font=("Arial", 14)
+).place(x=30, y=130)
 
-Label(main_frame, text="Кв./Офис", width=8, anchor="w").grid(row=6, column=2, sticky="w", pady=(10, 0))
-apartment_entry = Entry(main_frame, width=8)
-apartment_entry.grid(row=6, column=3, sticky="w", padx=(0, 0), pady=(10, 0))
+districts = [
+    "Выберите район",
+    "Центральный",
+    "Ленинский",
+    "Советский"
+]
 
-# Кнопки
-button_frame = Frame(main_frame)
-button_frame.grid(row=7, column=0, columnspan=4, pady=25)
+district_var = tk.StringVar()
+district_var.set(districts[0])
 
-ok_button = Button(button_frame, text="OK", width=8)
-ok_button.pack(side=LEFT, padx=5)
+district_menu = tk.OptionMenu(root, district_var, *districts)
+district_menu.config(width=35, font=("Arial", 12))
+district_menu.place(x=30, y=160)
 
-cancel_button = Button(button_frame, text="ОТМЕНА", width=8)
-cancel_button.pack(side=LEFT, padx=5)
+# ---------------- Город ----------------
 
-window.mainloop()
+tk.Label(
+    root,
+    text="Город",
+    bg="#e8e8e8",
+    font=("Arial", 14)
+).place(x=30, y=210)
+
+cities = [
+    "Выберите город",
+    "Москва",
+    "Санкт-Петербург",
+    "Краснодар",
+    "Казань"
+]
+
+city_var = tk.StringVar()
+city_var.set(cities[0])
+
+city_menu = tk.OptionMenu(root, city_var, *cities)
+city_menu.config(width=35, font=("Arial", 12))
+city_menu.place(x=30, y=240)
+
+# ---------------- Улица ----------------
+
+tk.Label(
+    root,
+    text="Улица",
+    bg="#e8e8e8",
+    font=("Arial", 14)
+).place(x=30, y=290)
+
+streets = [
+    "Выберите улицу",
+    "Ленина",
+    "Пушкина",
+    "Гагарина",
+    "Советская"
+]
+
+street_var = tk.StringVar()
+street_var.set(streets[0])
+
+street_menu = tk.OptionMenu(root, street_var, *streets)
+street_menu.config(width=35, font=("Arial", 12))
+street_menu.place(x=30, y=320)
+
+# ---------------- Поля ввода ----------------
+
+tk.Label(root, text="Дом", bg="#e8e8e8", font=("Arial", 12)).place(x=30, y=380)
+house = tk.Entry(root, width=10, font=("Arial", 12))
+house.place(x=80, y=380)
+
+tk.Label(root, text="Корпус", bg="#e8e8e8", font=("Arial", 12)).place(x=180, y=380)
+building = tk.Entry(root, width=10, font=("Arial", 12))
+building.place(x=250, y=380)
+
+tk.Label(root, text="Кв./Офис", bg="#e8e8e8", font=("Arial", 12)).place(x=350, y=380)
+flat = tk.Entry(root, width=10, font=("Arial", 12))
+flat.place(x=430, y=380)
+
+# ---------------- Кнопки ----------------
+
+def show_data():
+    print("Регион:", region_var.get())
+    print("Район:", district_var.get())
+    print("Город:", city_var.get())
+    print("Улица:", street_var.get())
+    print("Дом:", house.get())
+    print("Корпус:", building.get())
+    print("Квартира:", flat.get())
+    print("-" * 30)
+
+btn_ok = tk.Button(
+    root,
+    text="OK",
+    command=show_data,
+    width=10,
+    bg="white",
+    fg="#3aa0dd",
+    font=("Arial", 16, "bold")
+)
+btn_ok.place(x=100, y=440)
+
+btn_cancel = tk.Button(
+    root,
+    text="ОТМЕНА",
+    command=root.destroy,
+    width=12,
+    bg="white",
+    fg="#3aa0dd",
+    font=("Arial", 16, "bold")
+)
+btn_cancel.place(x=280, y=440)
+
+root.mainloop()
