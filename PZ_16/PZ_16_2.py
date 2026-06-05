@@ -6,7 +6,7 @@ class Student:
     def __init__(self, first_name, last_name, marks):
         self.first_name = first_name
         self.last_name = last_name
-        self.marks = [int(mark) for mark in marks.split(',')]
+        self.marks = [int(i) for i in marks.split(',')]
     
     def good_pupil(self):
         if not self.marks:
