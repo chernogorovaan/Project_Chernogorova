@@ -11,8 +11,6 @@ root.geometry("550x500")
 root.configure(bg="#e8e8e8")
 root.resizable(False, False)
 
-# ---------------- Заголовок ----------------
-
 title = tk.Label(
     root,
     text="выбрать из справочника",
@@ -21,8 +19,6 @@ title = tk.Label(
     font=("Arial", 14, "underline")
 )
 title.pack(pady=10)
-
-# ---------------- Регион ----------------
 
 tk.Label(
     root,
@@ -45,8 +41,6 @@ region_menu = tk.OptionMenu(root, region_var, *regions)
 region_menu.config(width=35, font=("Arial", 12))
 region_menu.place(x=30, y=80)
 
-# ---------------- Район ----------------
-
 tk.Label(
     root,
     text="Район",
@@ -67,8 +61,6 @@ district_var.set(districts[0])
 district_menu = tk.OptionMenu(root, district_var, *districts)
 district_menu.config(width=35, font=("Arial", 12))
 district_menu.place(x=30, y=160)
-
-# ---------------- Город ----------------
 
 tk.Label(
     root,
@@ -92,8 +84,6 @@ city_menu = tk.OptionMenu(root, city_var, *cities)
 city_menu.config(width=35, font=("Arial", 12))
 city_menu.place(x=30, y=240)
 
-# ---------------- Улица ----------------
-
 tk.Label(
     root,
     text="Улица",
@@ -116,8 +106,6 @@ street_menu = tk.OptionMenu(root, street_var, *streets)
 street_menu.config(width=35, font=("Arial", 12))
 street_menu.place(x=30, y=320)
 
-# ---------------- Поля ввода ----------------
-
 tk.Label(root, text="Дом", bg="#e8e8e8", font=("Arial", 12)).place(x=30, y=380)
 house = tk.Entry(root, width=10, font=("Arial", 12))
 house.place(x=80, y=380)
@@ -130,7 +118,6 @@ tk.Label(root, text="Кв./Офис", bg="#e8e8e8", font=("Arial", 12)).place(x=
 flat = tk.Entry(root, width=10, font=("Arial", 12))
 flat.place(x=430, y=380)
 
-# ---------------- Кнопки ----------------
 
 def show_data():
     print("Регион:", region_var.get())

@@ -1,24 +1,38 @@
 '''
-Добавьте методы для вычисления среднего балла и определения, является ли студент
-отличником.
+Создайте класс "Автомобиль", который содержит информацию о марке, модели и
+годе выпуска. Создайте класс "Грузовик", который наследуется от класса
+"Автомобиль" и содержит информацию о грузоподъемности. Создайте класс
+"Легковой автомобиль", который наследуется от класса "Автомобиль" и содержит
+информацию о количестве пассажиров.
 '''
-class Student:
-    def __init__(self, first_name, last_name, marks):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.marks = [int(i) for i in marks.split(',')]
-    
-    def good_pupil(self):
-        if not self.marks:
-            return "Нет"
-        ball = sum(self.marks)/len(self.marks)
-        if ball>=4.5:
-            return "Да"
-        else:
-            return "Нет"
-
+class Auto:
+    def __init__(self, brand, model, year):
+        self.brand = brand
+        self.model = model
+        self.year = year
     def info(self):
-        return f"Информация о студенте: \n Имя: {self.first_name}\n Фамилия: {self.last_name}\n Оценки: {self.marks}\n Является ли отличником: {self.good_pupil()}"
+        return f"Марка:{self.brand} \n Модель: {self.model} \n Год выпуска: {self.year}\n"
 
-student = Student('Анастасия', 'Черногорова', '5,5,5,5,4')
-print(student.info())
+class Truck(Auto):
+    def __init__(self, brand, model, year, load_capacity):
+        super().__init__(brand, model, year)
+        self.load_capacity = load_capacity
+    def info(self):
+        return f"Грузовик: \n Марка:{self.brand} \n Модель: {self.model} \n Год выпуска: {self.year}\n Грузоподъемность: {self.load_capacity}"
+
+class Car(Auto):
+    def __init__(self, brand, model, year, passengers):
+        super().__init__(brand, model, year)
+        self.passengers = passengers
+    def info(self):
+        return f"Легковой автмобиль: \n Марка:{self.brand} \n Модель: {self.model} \n Год выпуска: {self.year}\n Пассажиры: {self.passengers} человек"
+
+car = Car('Toyota', 'Camry', 2020, 5)
+truck = Truck("Volvo", "FH16", 2019, 25)
+auto = Auto('Toyota', 'Camry', 2020)
+
+print(car.info())
+print(' ')
+print(truck.info())
+print(' ')
+print(auto.info())
